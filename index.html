@@ -9,13 +9,17 @@
 <body>
 
 <!-- Header -->
-<header>
+<header></header>
     <!-- Top Section (Phone Number) -->
     <div class="bg-black text-white py-2">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center">
-                <span class="text-sm">📞 +355692092318</span>
+            <!-- Phone Icon and Number -->
+            <div class="flex items-center space-x-2">
+                <span>📞</span>
+                <span class="text-sm">+355692092318</span>
             </div>
+            
+            <!-- Registrasi and Login (Left Aligned) -->
             <div class="flex space-x-4">
                 <a href="#" class="text-sm hover:text-gray-400">Registrasi</a>
                 <a href="#" class="text-sm hover:text-gray-400">Login</a>
@@ -24,13 +28,20 @@
     </div>
 
     <!-- Main Navbar -->
-    <div class="bg-white shadow-md">
+    <div class="bg-white shadow-md"></div>
         <div class="container mx-auto flex justify-between items-center py-4 px-4">
-            <!-- Logo Section -->
+            <!-- Logo Section (Left-Aligned) -->
             <h1 class="text-2xl font-bold">Ernest</h1>
-    
-            <!-- Navigation and Contact Button (Right-Aligned) -->
-            <div class="flex items-center ml-auto space-x-8">
+
+            <!-- Hamburger Menu for Small Screens -->
+            <div class="md:hidden">
+                <button onclick="toggleMenu()" class="text-2xl">
+                    ☰
+                </button>
+            </div>
+
+            <!-- Navigation for Medium Screens and Above -->
+            <div class="hidden md:flex items-center ml-auto space-x-8">
                 <nav class="flex space-x-8">
                     <a href="#" class="hover:text-gray-600">Home</a>
                     <a href="#" class="hover:text-gray-600">About</a>
@@ -40,7 +51,19 @@
                 <a href="#" class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">Contact</a>
             </div>
         </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <nav class="flex flex-col items-center bg-white shadow-lg py-4">
+                <a href="#" class="py-2 text-lg hover:text-gray-600">Home</a>
+                <a href="#" class="py-2 text-lg hover:text-gray-600">About</a>
+                <a href="#" class="py-2 text-lg hover:text-gray-600">Service</a>
+                <a href="#" class="py-2 text-lg hover:text-gray-600">Accessories</a>
+                <a href="#" class="bg-black text-white px-6 py-2 mt-4 rounded-full hover:bg-gray-800">Contact</a>
+            </nav>
+        </div>
     </div>
+    
 </header>
 
 <!-- Hero Section with Black Overlay -->
@@ -65,19 +88,20 @@
         <!-- Section Title -->
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-3xl font-bold">Our Services</h2>
-            <a href="#" class="text-lg font-semibold text-black ">See all more</a>
+            <!-- 'See all more' only visible on larger screens -->
+            <a href="#" class="hidden md:block text-lg font-semibold text-black">See all more</a>
         </div>
     
-        <!-- Service Items -->
-        <div class="flex justify-around items-center space-x-4">
+        <!-- Service Items (Responsive Layout) -->
+        <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-around items-center md:space-x-4">
             <!-- Coffin Service -->
-            <div class="flex flex-col items-center p-6 ">
+            <div class="flex flex-col items-center p-6">
                 <img src="assets/images/icon coffin.png" alt="Coffin" class="w-16 h-16 mb-4"> <!-- Update image path -->
                 <h3 class="text-xl font-semibold">Coffin</h3>
             </div>
     
             <!-- Transport Service -->
-            <div class="flex flex-col items-center p-6 ">
+            <div class="flex flex-col items-center p-6">
                 <img src="assets/images/service1.png" alt="Transport" class="w-16 h-16 mb-4"> <!-- Update image path -->
                 <h3 class="text-xl font-semibold">Transport</h3>
             </div>
@@ -89,12 +113,16 @@
             </div>
     
             <!-- Ceremonial Hall Service -->
-            <div class="flex flex-col items-center  p-6 ">
+            <div class="flex flex-col items-center p-6">
                 <img src="assets/images/service2.png" alt="Ceremonial Hall" class="w-16 h-16 mb-4"> <!-- Update image path -->
                 <h3 class="text-xl font-semibold">Ceremonial Hall</h3>
             </div>
         </div>
+    
+        <!-- 'See all more' link only visible on smaller screens at the bottom -->
+        <a href="#" class="block text-lg font-semibold text-black text-center mt-8 md:hidden">See all more</a>
     </div>
+    
     
 </section>
 <!-- Welcome to Ernest Funeral Home Section -->
@@ -148,12 +176,12 @@
     <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
     
         <!-- Left Side: Director Information -->
-        <div class="flex items-center space-x-6">
+        <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
             <!-- Director Image -->
             <img src="assets/images/Untitled design - 2023-05-02T202737.906 1.png" alt="Director Image" class="w-32 h-32 rounded-full object-cover shadow-lg">
             
             <!-- Director Text -->
-            <div>
+            <div class="text-center md:text-left">
                 <h3 class="text-lg font-semibold">Director of <span class="font-bold">Ernest Funeral Home</span></h3>
                 <p class="text-sm font-light mb-2">Name Founder</p>
                 <p class="text-gray-400">Our goal is service with dedication and dignity to honor an interrupted life...</p>
@@ -179,6 +207,7 @@
             </a>
         </div>
     </div>
+    
     
 </section>
 <!-- About Us Section -->
@@ -349,7 +378,12 @@
     </div>
 </footer>
 
-
+<script defer>
+    // Script to toggle mobile menu visibility
+    function toggleMenu() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+</script>
 
 </body>
 </html>
